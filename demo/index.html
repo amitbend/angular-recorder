@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Demo for Audio Recorder</title>
+    <title>Demo for Coin Captain's authentication</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
     <script src="https://cdn.rawgit.com/katspaugh/wavesurfer.js/v1.0.46/dist/wavesurfer.min.js"></script>
@@ -10,25 +10,11 @@
     <script src="demo.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-    <style>
-        canvas {
-            display: inline-block;
-            background: #202020;
-            width: 100%;
-            /*height: 45%;*/
-            box-shadow: 0px 0px 10px blue;
-        }
-
-        .float-rt {
-            float: right;
-        }
-
-    </style>
 </head>
 
 <body ng-app="recorderDemo" ng-cloak="" style="font-family: sans-serif">
 <div ng-controller='DemoController'>
-    <h1 class="text-center">Welcome to Recorder Demo </h1>
+    <h1 class="text-center">Welcome to Authentication module </h1>
 
     <div ng-audio-recorder id="mainAudio" audio-model="recorded" class="container">
         <div ng-if="recorder.isAvailable">
