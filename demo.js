@@ -12,9 +12,9 @@
       recorderServiceProvider
         .forceSwf(window.location.search.indexOf('forceFlash') > -1)
         .setSwfUrl('lib/recorder.swf')
-        .withMp3Conversion(convert : true, config : {
+        .withMp3Conversion({convert : true, config : {
           bitRate : 320
-        });
+        }});
     });
 
 })();
