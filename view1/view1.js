@@ -24,6 +24,7 @@ angular.module('myApp.view1', ['ngRoute',
 	$scope.tLimit= 10;
 	$scope.sentence = randSent();
 	$scope.ready = false;
+	$scope.hi = 'hi';
 	
 	$scope.readyUp = function(){
 		$scope.ready = true;
@@ -46,12 +47,13 @@ angular.module('myApp.view1', ['ngRoute',
 function randSent() {
 
 		var words = ["eat","the","like","fine","great","go","lemon","word","link","pizza","name","spam"]
-			function rand_word(){
+			
 				var result = [];
 				var i = parseInt( Math.floor(Math.random()*4) + 6 );
 				while (i -- > 0) {
 					result.push(words[parseInt(Math.random()*words.length)])
 				}
+				console.log(result.join(" "));
 				return result.join(" ");
-			}
+	
 };
