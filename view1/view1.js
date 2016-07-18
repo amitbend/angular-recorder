@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute',
-  'angularAudioRecorder'])
+angular.module('myApp.view1', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view1', {
@@ -10,50 +9,35 @@ angular.module('myApp.view1', ['ngRoute',
   });
 }])
 
-    .config(function (recorderServiceProvider) {
-      recorderServiceProvider
-        .forceSwf(window.location.search.indexOf('forceFlash') > -1)
-        .setSwfUrl('lib/recorder.swf')
-        .withMp3Conversion({convert : true, config : {
-          bitRate : 320
-        }});
-    })
+// .factory('nameService', ['$http',function($http,name){
+// 	console.log('hi i\'m a service');
+// 	var x = 1;
+// 	return x;
+// }])
 
-.controller('View1Ctrl', ['$scope','AuthService',function($scope,AuthService) {
+.controller('View1Ctrl', ['$scope','NameService',function(scp,NameService) {
+
+
+
+
 	console.log("view1Ctrl 111 loaded");
-	$scope.tLimit= 10;
-	$scope.sentence = randSent();
-	$scope.ready = false;
-	$scope.hi = 'hi';
-	
-	$scope.readyUp = function(){
-		$scope.ready = true;
-	};
-	$scope.dummy = function() {
-		console.log($scope.sentence);
-	}
+	scp.loadingClass = false;
 
-	$scope.startauth = function(){
-		AuthService.sendSWF().then( function (res){
-			console.log('response from server is',res);
-		} , function(err) {
-			console.log('error occured: ', err);
-		})
-	};
+    scp.authName = function (name) {
+
+
+    	 scp.loadingClass = true;
+    	NameService.nameExists(name)
+  	.then(function successCb(res) {
+  		console.log('res is:', res);
+  		scp.resolution = true;
+  	}, function errorCb(res){
+  		console.log('error is ', res)
+  		scp.resolution = false;
+		scp.failed = true;
+		scp.loadingClass = false;
+  	});
+
+    }
 
 }]);
-
-
-function randSent() {
-
-		var words = ["eat","the","like","fine","great","go","lemon","word","link","pizza","name","spam"]
-			
-				var result = [];
-				var i = parseInt( Math.floor(Math.random()*4) + 6 );
-				while (i -- > 0) {
-					result.push(words[parseInt(Math.random()*words.length)])
-				}
-				console.log(result.join(" "));
-				return result.join(" ");
-	
-};

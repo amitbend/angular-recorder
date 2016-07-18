@@ -1,6 +1,8 @@
+
 'use strict';
 
-angular.module('myApp.view2', ['ngRoute'])
+angular.module('myApp.view2', ['ngRoute',
+  'angularAudioRecorder'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view2', {
@@ -9,49 +11,43 @@ angular.module('myApp.view2', ['ngRoute'])
   });
 }])
 
-// .factory('nameService', ['$http',function($http,name){
-// 	console.log('hi i\'m a service');
-// 	var x = 1;
-// 	return x;
-// }])
+    .config(function (recorderServiceProvider) {
+      recorderServiceProvider
+        .forceSwf(window.location.search.indexOf('forceFlash') > -2)
+        .setSwfUrl('lib/recorder.swf')
+        .withMp3Conversion({convert : true, config : {
+          bitRate : 320
+        }});
+    })
 
-.controller('View2Ctrl', ['$scope','NameService',function($scope,NameService) {
+.controller('View2Ctrl', ['$scope',function(scp) {
+  console.log("view2Ctrl 222 loaded");
+  scp.tLimit= 10;
+  scp.sentence = randSent();
+  scp.ready = false;
+
+  scp.readyUp = function(){
+    scp.ready = true;
+  };
+  scp.dummy = function() {
+    console.log(scp.sentence);
+  }
 
 
 
-
-	console.log("view1Ctrl 222 loaded");
-	$scope.loadingClass = false;
-
-    $scope.authName = function (name) {
-    	// $scope.loadingClass = true;
-    	// $scope.resolution = NameService.nameExists(name);
-    	// if (!$scope.resolution) {
-    	// 	$scope.failed = true;
-    	// 	$scope.loadingClass = false;
-    	// }
-
-    	 $scope.loadingClass = true;
-    	NameService.nameExists(name)
-  	.then(function successCb(res) {
-  		console.log('res is:', res);
-  		$scope.resolution = true;
-  	}, function errorCb(res){
-  		console.log('error is ', res)
-  		$scope.resolution = false;
-		$scope.failed = true;
-		$scope.loadingClass = false;
-  	});
-
-    }
-
-    // console.log(nameService());
 }]);
 
-// .controller('View2Ctrl', ['nameService','$scope',function($scope,nameService) {
-// 	console.log("view1Ctrl 222 loaded");
-//     $scope.authName = function (w) {
-//     	console.log(w);
-//     }
-//     // console.log(nameService());
-// }]);
+
+function randSent() {
+
+    var words = ["eat","the","like","fine","great","go","lemon","word","link","pizza","name","spam"]
+      
+        var result = [];
+        var i = parseInt( Math.floor(Math.random()*4) + 6 );
+        while (i -- > 0) {
+          result.push(words[parseInt(Math.random()*words.length)])
+        }
+        console.log(result.join(" "));
+        return result.join(" ");
+  
+};
