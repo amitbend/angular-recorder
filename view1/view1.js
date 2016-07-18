@@ -29,7 +29,7 @@ angular.module('myApp.view1', ['ngRoute',
 		$scope.ready = true;
 	};
 	$scope.dummy = function() {
-		console.log('dummy');
+		console.log($scope.sentence);
 	}
 
 	$scope.startauth = function(){
