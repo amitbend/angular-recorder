@@ -1,0 +1,95 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+
+input {
+      -webkit-writing-mode: horizontal-tb;
+
+    font-weight: 200;
+    font-family: "Avenir Next",Avenir,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,sans-serif;
+    color: navy;
+    font-size: 1.1em !important;
+    outline: 0;
+    box-shadow: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+    border: none;
+    background: 0 0;
+    display: block-inline;
+/*    height: 2em;
+    width: 530px;*/
+    padding: 0 2%;
+    position: relative;
+    z-index: 0;
+    -moz-transition: color .2s ease-in-out,opacity .2s ease-in-out;
+    -o-transition: color .2s ease-in-out,opacity .2s ease-in-out;
+    -webkit-transition: color .2s ease-in-out,opacity .2s ease-in-out;
+    transition: color .2s ease-in-out,opacity .2s ease-in-out;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+user agent stylesheet
+input:not([type]), input[type="email" i], input[type="number" i], input[type="password" i], input[type="tel" i], input[type="url" i], input[type="text" i] {
+    padding: 1px 0px;
+}
+user agent stylesheet
+input {
+    -webkit-appearance: textfield;
+    background-color: white;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    -webkit-rtl-ordering: logical;
+    -webkit-user-select: text;
+    cursor: auto;
+    padding: 1px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+}
+user agent stylesheet
+input, textarea, keygen, select, button {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em 0em 0em 0em;
+/*    font: 13.3333px Arial;
+*/}
