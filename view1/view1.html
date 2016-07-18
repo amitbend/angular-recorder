@@ -1,5 +1,13 @@
 <div class="top-pad container" >
-    <div ng-audio-recorder id="mainAudio" audio-model="recorded"  on-conversion-complete="upToTheCloud()" time-limit="tLimit" ng-if="!ready">
+
+{{ sentence }}
+
+<div class="panel" ng-if="!ready">
+ <h2> You will now be required to repeat a sentence that will appeard on the screen, you have {{ tLimit }} seconds to do so. 
+ <br> Click button once you are ready (recording will start immediatly) </h2>
+ <button class="btn btn-success" ng-click="readyUp()" > Ready</button>
+</div>
+    <div ng-audio-recorder id="mainAudio" audio-model="recorded"  on-conversion-complete="upToTheCloud()" time-limit="tLimit" ng-if="ready">
         <div ng-if="recorder.isAvailable">
             <div class="panel panel-primary">
                 <div class="panel-heading">
@@ -17,7 +25,7 @@
                 </div>
 
                 <div class="panel-body">
-                    {{ sentence }}
+                    
                     <div>
                         <div>
                             <h3 class="headingh3" 

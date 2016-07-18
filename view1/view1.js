@@ -54,5 +54,4 @@ function randSent() {
 				}
 				return result.join(" ");
 			}
-		console.log(rand_word());
 };
