@@ -19,7 +19,7 @@ angular.module('myApp.view1', ['ngRoute',
         }});
     })
 
-.controller('View1Ctrl', ['$scope',function($scope) {
+.controller('View1Ctrl', ['$scope','AuthService',function($scope,AuthService) {
 	console.log("view1Ctrl 111 loaded");
 	$scope.tLimit= 10;
 	$scope.sentence = randSent();
@@ -27,6 +27,17 @@ angular.module('myApp.view1', ['ngRoute',
 	
 	$scope.readyUp = function(){
 		$scope.ready = true;
+	};
+	$scope.dummy = function() {
+		console.log('dummy');
+	}
+
+	$scope.startauth = function(){
+		AuthService.sendSWF().then( function (res){
+			console.log('response from server is',res);
+		} , function(err) {
+			console.log('error occured: ', err);
+		})
 	};
 
 }]);
