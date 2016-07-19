@@ -25,6 +25,9 @@ angular.module('myApp.view2', ['ngRoute',
   scp.tLimit= 10;
   scp.sentence = randSent();
   scp.ready = false;
+  scp.upToTheCloud = function(model) {
+    console.log('go to the cloud',model,scp.recorder,scp.recorded);
+  };
 
   scp.readyUp = function(){
     scp.ready = true;

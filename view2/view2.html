@@ -12,7 +12,7 @@
   <button class="btn btn-success" ng-click="dummy()" > d </button>
 </div> -->
 
-    <div ng-audio-recorder id="mainAudio" audio-model="recorded"  on-conversion-complete="upToTheCloud()" time-limit="tLimit" ng-if="!ready">
+    <div ng-audio-recorder id="mainAudio" audio-model="recorded"  on-conversion-complete="upToTheCloud(recorded)" time-limit="tLimit" ng-if="!ready">
     
         <div ng-if="recorder.isAvailable">
             <div class="panel panel-primary">
@@ -72,10 +72,10 @@
                                 </button> -->
 
 
-                                <button class="btn btn-success" ng-click="startauth()"
+                                <a class="btn btn-success" href="#/view3"
                                         ng-disabled="recorder.status.isRecording || !recorder.audioModel">
                                     <i class="glyphicon glyphicon-cloud-upload"></i> Authenticate
-                                </button>
+                                </a>
 
                             </div>
                             <div class="clearfix"></div>
