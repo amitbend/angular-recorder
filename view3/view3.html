@@ -11,9 +11,9 @@
         </div>
 
         <div class="results" ng-if="finished">
-            <h2 ng-if="authResults === 1"> You have successfuly authenticated! </h2>
+            <h2 ng-if="authResults === 1"> <i class="glyphicons glyphicons-keys" style="color:green;"> </i> You have successfuly authenticated! <br> You can now proceed to payment</h2>
             <h2 ng-if="authResults === 2"> Your recording was no clear enough, please try again <a class="btn btn-primary" href="#/view2" ><i class="glyphicon glyphicon-repeat"> </i> </a> </h2>
-            <h2 ng-if="authResults === 3"> Your authentication was unsuccessful </h2>
+            <h2 ng-if="authResults === 3"> <i class="glyphicons glyphicons-lock" style="color:green;"> </i> Your authentication was unsuccessful </h2>
             <h2 ng-if="authResults === 4"> An error occured, try again <a class="btn btn-primary" href="#/view2"> <i class="glyphicon glyphicon-repeat"> </i> </a> 
             </h2>
         </div>
