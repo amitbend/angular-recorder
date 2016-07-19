@@ -27,8 +27,8 @@ angular.module('myApp.view3', ['ngRoute'])
 
 	var init = function () {
 	    AuthService.sendSWF().then( function (res){
-	      console.log('response from server is',res);
 	      scp.authResults = decide(res);
+	      console.log('my decision is:',scp.authResults);
 	      scp.finished = true;
 	
 	    } , function(err) {
@@ -47,10 +47,21 @@ angular.module('myApp.view3', ['ngRoute'])
 
 function decide(res) {
 	if (res){
-		return 1;
+		console.log('res:',res);
+		setTimeout(function() {
+					var best = res.results[0].best;
+		if (best.speaker !== 'roee'){
+			return 3;
+		}
+		if (best.score > 1){
+			return 1;
+		}
+		return 2;
+		}, 5000);
+
 	}
 	else{
-		return 2;
+		return 4;
 	}
 
 };

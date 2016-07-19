@@ -33,7 +33,7 @@ angular.module('myApp.view1', ['ngRoute'])
   		scp.resolution = true;
       setTimeout(function(){
         window.location.href = '#/view2';
-      }, 1000)
+      }, 2700)
   	}, function errorCb(res){
   		console.log('error is ', res)
   		scp.resolution = false;
