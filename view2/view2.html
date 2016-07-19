@@ -12,7 +12,7 @@
   <button class="btn btn-success" ng-click="dummy()" > d </button>
 </div> -->
 
-    <div ng-audio-recorder id="mainAudio" audio-model="recorded"  on-conversion-complete="upToTheCloud(recorded)" time-limit="tLimit" ng-if="!ready">
+    <div ng-audio-recorder id="mainAudio" audio-model="recorded" on-conversion-complete="upBlob()" on-record-start="upToTheCloud(recorded)" time-limit="tLimit" ng-if="!ready">
     
         <div ng-if="recorder.isAvailable">
             <div class="panel panel-primary">
@@ -26,7 +26,6 @@
                             Using FLASH <a href="?" class="btn btn-default btn-sm float-rt">Use Default</a>
                         </span>
                     </h3>
-                    x {{ x}}
                     <div class="clearfix"></div>
                 </div>
 
@@ -45,7 +44,7 @@
 
                             <div class="controls text-center ctrls" 
                                  ng-hide="recorder.status.isDenied === true">
-                                 <h5 style="margin-bottom:2em;"> A random sentence will appear once you will click "ready", Read it with a clear voice within 10 seconds </h5>
+                                 <h5 class="intro" style="margin-bottom:2em;"> <div ng-if="!recorder.status.isRecording"> A random sentence will appear once you will click "ready", Read it with a clear voice within 10 seconds </div> <div ng-if="recorder.status.isRecording"> {{ recorder.x}} </div> </h5>
                                 <button ng-click="recorder.status.isRecording ? recorder.stopRecord() : recorder.startRecord()"
                                         type="button" class="btn"
                                         ng-class="{'btn-primary': !recorder.status.isRecording, 'btn-danger': recorder.status.isRecording}">
@@ -115,8 +114,8 @@
         </div>
     </div>
 </div>
-                                <button class="btn btn-success" ng-click="startauth()"
+<!--                                 <button class="btn btn-success" ng-click="startauth()"
                                     <i class="glyphicon glyphicon-cloud-upload"></i> Authenticate
                                 </button>
-
+ -->
 

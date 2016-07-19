@@ -20,14 +20,21 @@ angular.module('myApp.view2', ['ngRoute',
         }});
     })
 
-.controller('View2Ctrl', ['$scope',function(scp) {
+.controller('View2Ctrl', ['$scope','recorderService','blobService',function(scp,recorderService,blobService) {
+  console.log(scp.innerCtrl);
   console.log("view2Ctrl 222 loaded");
   scp.tLimit= 10;
   scp.sentence = randSent();
   scp.ready = false;
   scp.upToTheCloud = function(model) {
     console.log('go to the cloud',typeof model,scp.recorder,scp.recorded);
-    scp.x = 'hh';
+    recorderService.controller('mainAudio').x = randSent();
+    console.log(recorderService.controller('mainAudio'));
+  };
+
+  scp.upBlob = function(){
+    
+    blobService.setBlob(recorderService.controller('mainAudio').audioModel);
   };
 
   scp.readyUp = function(){

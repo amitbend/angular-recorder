@@ -19,7 +19,7 @@ angular.module('myApp.view3', ['ngRoute'])
         ;
     })
 
-.controller('View3Ctrl', ['$scope','AuthService',function(scp,AuthService) {
+.controller('View3Ctrl', ['$scope','AuthService','mynameService',function(scp,AuthService,mynameService) {
 	console.log("view1Ctrl 333 loaded");
 
 
@@ -27,7 +27,7 @@ angular.module('myApp.view3', ['ngRoute'])
 
 	var init = function () {
 	    AuthService.sendSWF().then( function (res){
-	      scp.authResults = decide(res);
+	      scp.authResults = decide(res,mynameService.getName());
 	      console.log('my decision is:',scp.authResults);
 	      scp.finished = true;
 	
@@ -45,12 +45,12 @@ angular.module('myApp.view3', ['ngRoute'])
 }]);
 
 
-function decide(res) {
+function decide(res,myname) {
 	if (res){
 		console.log('res:',res);
 		setTimeout(function() {
 					var best = res.results[0].best;
-		if (best.speaker !== 'roee'){
+		if (best.speaker !== myname){
 			return 3;
 		}
 		if (best.score > 1){

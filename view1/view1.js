@@ -15,7 +15,7 @@ angular.module('myApp.view1', ['ngRoute'])
 // 	return x;
 // }])
 
-.controller('View1Ctrl', ['$scope','NameService','$window',function(scp,NameService,window) {
+.controller('View1Ctrl', ['$scope','NameService','$window','mynameService',function(scp,NameService,window,mynameService) {
 
 
 
@@ -30,9 +30,10 @@ angular.module('myApp.view1', ['ngRoute'])
     	NameService.nameExists(name)
   	.then(function successCb(res) {
   		console.log('res is:', res);
-      if (res.results[0].exist === name)
+      if (res.data.exists)
       {
          scp.resolution = true;
+         mynameService.setName(name);
          setTimeout(function(){
          window.location.href = '#/view2';
         }, 2000)
@@ -44,8 +45,9 @@ angular.module('myApp.view1', ['ngRoute'])
       }
 
   	}, function errorCb(res){
-  		console.log('error is ', res)
-  		scp.resolution = false;
+  		
+    console.log('error is ', res)
+  	scp.resolution = false;
 		scp.failed = true;
 		scp.loadingClass = false;
   	});
