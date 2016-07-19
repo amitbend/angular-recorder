@@ -30,10 +30,19 @@ angular.module('myApp.view1', ['ngRoute'])
     	NameService.nameExists(name)
   	.then(function successCb(res) {
   		console.log('res is:', res);
-  		scp.resolution = true;
-      setTimeout(function(){
-        window.location.href = '#/view2';
-      }, 2700)
+      if (res.results[0].exist === name)
+      {
+         scp.resolution = true;
+         setTimeout(function(){
+         window.location.href = '#/view2';
+        }, 2000)
+      }
+      else {
+          scp.resolution = false;
+          scp.failed = true;
+          scp.loadingClass = false;
+      }
+
   	}, function errorCb(res){
   		console.log('error is ', res)
   		scp.resolution = false;
