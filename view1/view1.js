@@ -15,7 +15,7 @@ angular.module('myApp.view1', ['ngRoute'])
 // 	return x;
 // }])
 
-.controller('View1Ctrl', ['$scope','NameService',function(scp,NameService) {
+.controller('View1Ctrl', ['$scope','NameService','$window',function(scp,NameService,window) {
 
 
 
@@ -31,6 +31,9 @@ angular.module('myApp.view1', ['ngRoute'])
   	.then(function successCb(res) {
   		console.log('res is:', res);
   		scp.resolution = true;
+      setTimeout(function(){
+        window.location.href = '#/view2';
+      }, 1000)
   	}, function errorCb(res){
   		console.log('error is ', res)
   		scp.resolution = false;

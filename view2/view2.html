@@ -19,14 +19,14 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">
                         <span ng-if="recorder.isHtml5()">
-                            Using HTML5 <a href="?forceFlash" class="btn btn-default btn-sm float-rt">Use FLASH</a>
+                            Recorder <a href="?forceFlash" class="btn btn-default btn-sm float-rt">Use FLASH</a>
                         </span>
 
                         <span ng-if="!recorder.isHtml5()">
                             Using FLASH <a href="?" class="btn btn-default btn-sm float-rt">Use Default</a>
                         </span>
                     </h3>
-
+                    x {{ x}}
                     <div class="clearfix"></div>
                 </div>
 
@@ -45,6 +45,7 @@
 
                             <div class="controls text-center ctrls" 
                                  ng-hide="recorder.status.isDenied === true">
+                                 <h5 style="margin-bottom:2em;"> A random sentence will appear once you will click "ready", Read it with a clear voice within 10 seconds </h5>
                                 <button ng-click="recorder.status.isRecording ? recorder.stopRecord() : recorder.startRecord()"
                                         type="button" class="btn"
                                         ng-class="{'btn-primary': !recorder.status.isRecording, 'btn-danger': recorder.status.isRecording}">

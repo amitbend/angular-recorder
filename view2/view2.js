@@ -15,7 +15,7 @@ angular.module('myApp.view2', ['ngRoute',
       recorderServiceProvider
         .forceSwf(window.location.search.indexOf('forceFlash') > -2)
         .setSwfUrl('lib/recorder.swf')
-        .withMp3Conversion({convert : true, config : {
+        .withMp3Conversion({convert : false, config : {
           bitRate : 320
         }});
     })
@@ -26,15 +26,13 @@ angular.module('myApp.view2', ['ngRoute',
   scp.sentence = randSent();
   scp.ready = false;
   scp.upToTheCloud = function(model) {
-    console.log('go to the cloud',model,scp.recorder,scp.recorded);
+    console.log('go to the cloud',typeof model,scp.recorder,scp.recorded);
+    scp.x = 'hh';
   };
 
   scp.readyUp = function(){
     scp.ready = true;
   };
-  scp.dummy = function() {
-    console.log(scp.sentence);
-  }
 
 
 

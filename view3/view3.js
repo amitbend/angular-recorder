@@ -12,10 +12,11 @@ angular.module('myApp.view3', ['ngRoute'])
     .config(function (recorderServiceProvider) {
       recorderServiceProvider
         .forceSwf(window.location.search.indexOf('forceFlash') > -1)
-        .setSwfUrl('lib/recorder.swf')
-        .withMp3Conversion({convert : true, config : {
-          bitRate : 320
-        }});
+        // .setSwfUrl('lib/recorder.swf')
+        // .withMp3Conversion({convert : true, config : {
+        //   bitRate : 320
+        // }})
+        ;
     })
 
 .controller('View3Ctrl', ['$scope','AuthService',function(scp,AuthService) {

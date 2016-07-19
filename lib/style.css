@@ -10,7 +10,7 @@
             float: right;
         }
         .headingh3 {
-            float: right; font-family: sans-serif; text-align: center; width: 50px; border-radius: 30px; border: solid 2px #333; padding: 10px; margin: 0; background: #337ab7; color: #fff;
+            float: right; font-family: sans-serif; text-align: center !important; width: 50px; border-radius: 30px; border: solid 2px #333; padding: 10px; margin: 0; background: #337ab7; color: #fff;
         }.ctrls {
             padding-top: 10px;
         }
