@@ -48,8 +48,8 @@ angular.module('myApp.view3', ['ngRoute'])
 function decide(res,myname) {
 	if (res){
 		console.log('res:',res);
-		setTimeout(function() {
-					var best = res.results[0].best;
+
+		var best = res.data.results[0].best;
 		if (best.speaker !== myname){
 			return 3;
 		}
@@ -57,7 +57,7 @@ function decide(res,myname) {
 			return 1;
 		}
 		return 2;
-		}, 5000);
+
 
 	}
 	else{

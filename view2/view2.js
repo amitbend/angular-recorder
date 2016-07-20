@@ -48,14 +48,13 @@ angular.module('myApp.view2', ['ngRoute',
 
 function randSent() {
 
-    var words = ["eat","the","like","fine","great","go","lemon","word","link","pizza","name","spam"]
+    var words = ["I have to go now", "Please leave me a message","I have never been to Tokyo"
+    ,"Can you please help me","I'm trying to fix a problem","I usually drive a car",
+    "Print this photo ASAP","I just ate a lot of sushi", "I feel really sleepy now",
+    "You have many great ideas","We've created this cool technology"]
       
         var result = [];
-        var i = parseInt( Math.floor(Math.random()*4) + 6 );
-        while (i -- > 0) {
-          result.push(words[parseInt(Math.random()*words.length)])
-        }
-        console.log(result.join(" "));
-        return result.join(" ");
+        result.push(words[parseInt(Math.random()*words.length)])
+        return result[0];
   
 };
