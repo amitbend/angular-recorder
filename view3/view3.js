@@ -19,14 +19,14 @@ angular.module('myApp.view3', ['ngRoute'])
         ;
     })
 
-.controller('View3Ctrl', ['$scope','AuthService','mynameService',function(scp,AuthService,mynameService) {
+.controller('View3Ctrl', ['$scope','AuthService','mynameService','blobService',function(scp,AuthService,mynameService,blobService) {
 	console.log("view1Ctrl 333 loaded");
 
 
 	scp.finished = false;
 
 	var init = function () {
-	    AuthService.sendSWF().then( function (res){
+	    AuthService.sendSWF(blobService.getBlob()).then( function (res){
 	      scp.authResults = decide(res,mynameService.getName());
 	      console.log('my decision is:',scp.authResults);
 	      scp.finished = true;
